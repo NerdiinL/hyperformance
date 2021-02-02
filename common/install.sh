@@ -11,7 +11,7 @@ sleep 0.9
 sleep 0.9
   ui_print "_______________________________"
 sleep 0.9
-  ui_print "💉APLICANDO A VACINA...."
+  ui_print "𝙘𝙤𝙡𝙤𝙘𝙖𝙣𝙙𝙤 𝙝𝙮𝙥𝙚..."
 sleep 9.0
   ui_print "Tudo Certo por equanto.."
 sleep 2.4
