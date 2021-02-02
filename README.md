@@ -1,8 +1,8 @@
 <h1 align="center">Modulo Magisk Base Nerdiin</h1>
 
 <div align="center">
-  <!-- Version -->
-    <img src="https://img.shields.io/badge/Version-v1.6-blue.svg?longCache=true&style=popout-square"
+  <!-- Versão -->
+    <img src="https://img.shields.io/badge/Version-v0.1-blue.svg?longCache=true&style=popout-square"
       alt="Version" />
   <!-- Last Updated -->
     <img src="https://img.shields.io/badge/Atualizado-Fevereiro 2, 2021-green.svg?longCache=true&style=flat-square"
