@@ -5,7 +5,7 @@ sleep 0.9
 sleep 0.9
   ui_print "        𝙃𝙮𝙥𝙚𝙧𝙛𝙤𝙧𝙢𝙖𝙣𝙘𝙚          "
 sleep 0.9
-  ui_print "        Devs: Haxis & Nerdiin "
+  ui_print "        Devs: 𝙃𝙖𝙭𝙞𝙨 & 𝙉𝙚𝙧𝙙𝙞𝙞𝙣 "
 sleep 0.9
   ui_print "   "
 sleep 0.9
