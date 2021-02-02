@@ -12,7 +12,7 @@
       alt="_time_stamp_" /></div>
 
 <div align="center">
-  <strong>Nada Aq Meu Parsero
+  <strong>𝙃𝙮𝙥𝙚𝙧𝙛𝙤𝙧𝙢𝙖𝙣𝙘𝙚 𝚃𝚘𝚡𝚒𝚌 
    
 </div>
 
