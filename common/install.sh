@@ -3,11 +3,11 @@ print_modname() {
 sleep 0.9
   ui_print "_______________________________"
 sleep 0.9
-  ui_print "          Apolon  V3.2 "
+  ui_print "          Hyperformance"
 sleep 0.9
-  ui_print "        Dev Haxis :::   "
+  ui_print "        Dev Haxis & Nerdiin "
 sleep 0.9
-  ui_print "   Dev Official @asli_immi   "
+  ui_print "   "
 sleep 0.9
   ui_print "_______________________________"
 sleep 0.9
