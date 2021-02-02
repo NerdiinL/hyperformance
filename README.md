@@ -19,11 +19,11 @@
 <div align="center">
   <h3>
     <a href="https://github.com/Zackptg5/MMT-Extended">
-      Source Code
+      Codigo Fonte
     </a>
     <span> | </span>
     <a href="https://github.com/Zackptg5/MMT-Extended-Addons">
-      Addons Repository
+      Repositório de Addons
     </a>
     <span> | </span>
     <a href="https://forum.xda-developers.com/apps/magisk/magisk-module-template-extended-mmt-ex-t4029819">
@@ -32,6 +32,4 @@
   </h3>
 </div>
 
-### Usage
-- [Follow the directions here (DO NOT FORK)](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
-- Then follow instructions in [Wiki](https://github.com/Zackptg5/MMT-Extended/wiki)
+
