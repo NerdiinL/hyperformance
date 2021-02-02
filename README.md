@@ -1,4 +1,4 @@
-<h1 align="center">Hyperformance Magisk</h1>
+<h1 align="center">𝙃𝙮𝙥𝙚𝙧𝙛𝙤𝙧𝙢𝙖𝙣𝙘𝙚 
 
 <div align="center">
   <!-- Versão -->
