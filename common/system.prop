@@ -1,0 +1,189 @@
+#=====A==================================
+# Apolon V3
+# Developer : Haxis :)
+#========================================
+# This file will be read by# This file will be read by resetprop
+# Example: Change dpi
+# ro.sf.lcd_density=320
+#========================================
+#
+#Game Performance Tweaks
+persist.sys.NV_FPSLIMIT=90
+persist.sys.NV_POWERMODE=1
+ENFORCE_PROCESS_LIMIT=false
+persist.sys.NV_PROFVER=15
+persist.sys.NV_STEREOCTRL=0
+persist.sys.NV_STEREOSEPCHG=0
+persist.sys.NV_STEREOSEP=20
+#
+#GPU Rendering
+debug.hwui.renderer=skiavk
+debug.composition.type=gpu
+debug.composition.type=c2d
+debug.egl.hw=1
+debug.sf.hw=1
+ro.hwui.use_vulkan=true
+ro.hardware.egl=adreno
+debug.enabletr=true
+debug.qctwa.preservebuf=1
+debug.qc.hardware=true
+com.qc.hardware=true
+debug.overlayui.enable=1
+debug.performance.tuning=1
+debug.gr.numframebuffers=3
+debug.kill_allocating_task=0
+dev.pm.dyn_samplingrate=1
+hw3d.force=1
+hw2d.force=1
+ro.secure=0
+hwui.disable_vsync=true
+hwui.render_dirty_regions=false
+persist.sys.composition.type=c2d
+persist.sys.composition.type=gpu
+persist.sys.ui.hw=1
+persist.sys.force_sw_gles=1
+persist.sys.use_dithering=1
+ro.config.disable.hw_accel=false
+ro.config.enable.hw_accel=true
+ro.product.gpu.driver=1
+ro.fb.mode=1
+ro.vold.umsdirtyratio=60
+ro.sf.compbypass.enable=0
+video.accelerate.hw=1
+#
+#Disable Logging
+ro.config.nocheckin=1
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+logcat.live=disable
+#
+#Disable Kernel Error Checking
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+#
+#Ram Tweak
+persist.sys.purgeable_assets=1
+ro.HOME_APP_ADJ=1
+ro.FOREGROUND_APP_ADJ=1
+ro.HOME_APP_MEM=1
+ro.FOREGROUND_APP_MEM=1
+ro.vendor.qti.sys.fw.bservice_enable=true
+ro.vendor.qti.sys.fw.bg_apps_limit=60
+#
+#Turn off V-Sync
+debug.hwui.disable_vsync=true
+hwui.disable_vsync=true
+#
+#Miscellaneous
+wifi.supplicant_scan_interval=180
+debug.atrace.tags.enableflags=0
+debugtool.anrhistory=0
+ro.debuggable=1
+dalvik.vm.checkjni=false
+profiler.debugmonitor=false
+profiler.launch=false
+profiler.hung.dumpdobugreport=false
+debug.sf.latch_unsignaled=1
+debug.sf.disable_backpressure=1
+sys.use_fifo_ui=1
+#
+#Touch improve
+view.scroll_friction=10
+touch.pressure.scale=0.001
+touch.size.calibration=geometric
+touch.pressure.calibration=amplitude
+touch.size.scale=1
+touch.size.bias=0
+touch.size.isSummed=0
+touch.orientation.calibration=none
+touch.distance.calibration=none
+touch.distance.scale=0
+touch.coverage.calibration=box
+touch.gestureMode=spots
+MultitouchMinDistance=1px
+MultitouchSettleInterval=1ms
+TapInterval=1ms
+TapSlop=1px
+windowsmgr.max_events_per_sec=180
+ro.min_pointer_dur=4
+ro.max.fling_velocity=18000
+ro.min.fling_velocity=6000
+ro.product.multi_touch_enabled=true
+ro.product.max_num_touch=10
+ro.securestorage.knox=false
+security.mdpp=none
+security.mdpp.result=none
+af.resampler.quality=255
+persist.sys.scrollingcache=3
+persist.af.resampler.quality=255
+persist.dev.pm.dyn_samplingrate=1
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+#
+#NetTweaks
+net.eth0.dns1=1.1.1.1
+net.eth0.dns2=1.0.0.1
+
+net.dns1=1.1.1.1
+net.dns2=1.0.0.1
+
+net.ppp0.dns1=1.1.1.1
+net.ppp0.dns2=1.0.0.1
+
+net.rmnet0.dns1=1.1.1.1
+net.rmnet0.dns2=1.0.0.1
+
+net.rmnet1.dns1=1.1.1.1
+net.rmnet1.dns2=1.0.0.1
+
+net.pdpbr1.dns1=1.1.1.1
+net.pdpbr1.dns2=1.0.0.1
+#
+# power-berry-touch
+#  TOUCH
+view.touch_slop=0
+touch.pressure.calibration=amplitude
+touch pressure.calibration=100
+touch.size.calibration=diameter
+touch.size.scale=0
+touch.size.bias=0
+touch.size.isSummed=0
+touch.pressure.scale=0
+touch.distance.calibration=scaled
+touch.distance.scale=0
+
+# MultiTouch
+MultitouchMinDistance=1px
+MultitouchSettleInterval=0ms
+TapInterval=0ms
+TapSlop=1px
+
+# Better Scrolling
+windowsmgr.max_events_per_sec=250
+view.scroll_friction=0
+ro.min_pointer_dur=8
+touch.deviceType=touchScreen
+
+# Fast Response
+debug.egl.hw=1
+video.accelerate.hw=1
+view.touch_slop=1
+view.scroll_friction=0
+ro.max.fling_velocity=20000
+ro.min.fling_velocity=8000
+
+# Dexopt
+pm.dexopt.bg-dexopt=speed-profile
+pm.dexopt.shared=speed
+
+# Fifo
+sys.use_fifo_ui=1
+
+# power-berry-touch
+##
+
+###
+#
+#########
+#########
+#
