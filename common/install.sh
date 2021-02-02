@@ -3,9 +3,9 @@ print_modname() {
 sleep 0.9
   ui_print "_______________________________"
 sleep 0.9
-  ui_print "          Hyperformance"
+  ui_print "        𝙃𝙮𝙥𝙚𝙧𝙛𝙤𝙧𝙢𝙖𝙣𝙘𝙚          "
 sleep 0.9
-  ui_print "        Dev Haxis & Nerdiin "
+  ui_print "        Devs: Haxis & Nerdiin "
 sleep 0.9
   ui_print "   "
 sleep 0.9
