@@ -1,4 +1,4 @@
-<h1 align="center">Modulo Magisk Base Nerdiin</h1>
+<h1 align="center">Hyperformance Magisk</h1>
 
 <div align="center">
   <!-- Versão -->
