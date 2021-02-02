@@ -12,8 +12,8 @@
       alt="_time_stamp_" /></div>
 
 <div align="center">
-  <strong>MMT Extended is the spiritual successor of Unity and makes magisk module creation easy. More details in the 
-    <a href="https://github.com/Zackptg5/MMT-Extended/wiki">wiki</a>.
+  <strong>Nada Aq Meu Parsero
+   
 </div>
 
 <div align="center">
