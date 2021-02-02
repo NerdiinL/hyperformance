@@ -1,0 +1,320 @@
+#========================================
+# Extreme Gaming
+# Developer : @asli_immi
+# Written : @WeAreRavens
+# Modified : @AkiraSuper
+#========================================
+#!/system/bin/sh
+# Log in red
+err() {
+	if [[ -n "$SIMPLE_LOGGING" ]]
+	then
+		echo "ERROR $*"
+	else
+		echo -e " \e[91m*\e[39m $*"
+	fi
+}
+
+# Log in orange
+warn() {
+	if [[ -n "$SIMPLE_LOGGING" ]]
+	then
+		echo "WARNING $*"
+	else
+		echo -e " \e[93m*\e[39m $*"
+	fi
+}
+
+# Log in white and continue (unnecessary)
+dbg() {
+	if [[ -n "$SIMPLE_LOGGING" ]]
+	then
+		echo "DEBUG $*"
+	else
+		echo -e " \e[92m*\e[39m $*"
+	fi
+}
+
+# Safely write value to file
+write() {
+	# Bail out if file does not exist
+	[[ ! -f "$1" ]] && return 1
+
+	# Fetch the current key value
+	local curval
+	curval="$(cat "$1" 2> /dev/null)"
+
+	# Bail out if value is already set
+	if [[ "$curval" == "$2" ]]
+	then
+		warn "$1: $curval → $2"
+		return 0
+	fi
+
+	# Write the new value
+	if ! echo "$2" > "$1" 2> /dev/null
+	then
+		err "$1: $curval → $2"
+		return 1
+	fi
+
+	dbg "$1: $curval → $2"
+}
+
+usage() {
+	echo -n "Usage: $(basename "$0") [OPTIONS]
+Options:
+  -p			Parsable logging
+  -h			Show usage
+"
+}
+
+while getopts ":ph" opt; do
+	case $opt in
+		p)
+			SIMPLE_LOGGING=1
+			;;
+		h)
+			usage
+			exit 0
+			;;
+		*)
+			usage
+			exit 1
+			;;
+	esac
+done
+shift $((OPTIND - 1))
+
+# Check for root permissions
+if [[ "$(id -u)" -ne 0 ]]
+then
+	err "No root permissions. Exiting."
+	exit 1
+fi
+
+
+# Log the date and time
+dbg "Time of execution: $(date)"
+
+if [ -e /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors ]; then
+ cpu_governors=/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+fi
+
+if [ -e /sys/block/mmcblk0/queue/scheduler ]; then
+ io_scheduler=/sys/block/mmcblk0/queue/scheduler
+fi
+ext4blocks="/sys/fs/ext4/mmcblk0p*"
+
+#Modified Execute Gaming Mode(by @HafizZiq)
+while true; do
+    sleep 20
+if [ $(top -n 1 -d 1 | head -n 12 | grep -o -e 'mobile' -e 'skynet' -e 'cputhrottlingtest' -e 'codm' -e 'legends' -e 'nexon' -e 'ea.game' -e 'konami' -e 'bandainamco' -e 'netmarble' -e 'edengames' -e 'tencent' -e 'moonton' -e 'gameloft' -e 'netease' -e 'garena' -e 'miHoYo' -e 'damonplay' -e 'ppsspp' -e 'MAME' -e 'Supercell' -e 'innersloth' | head -n 1) ]; then
+  echo "1" > /sys/devices/system/cpu/cpu0/online
+  echo "1" > /sys/devices/system/cpu/cpu4/online
+if [ -e /sys/module/msm_performance/parameters/cpu_oc ]; then
+  echo Y > /sys/module/msm_performance/parameters/cpu_oc
+fi
+if grep 'blu_schedutil' $cpu_governors; then
+  echo "performance" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo "performance" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+elif grep 'pwrutilx' $cpu_governors; then
+  echo "performance" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo "performance" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+elif grep 'interactive' $cpu_governors; then
+  echo "performance" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo "performance" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+elif grep 'schedutil' $cpu_governors; then
+  echo "performance" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo "performance" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+fi
+for ext4block in $ext4blocks; do
+if [ -e "$ext4block/inode_readahead_blks" ]; then
+  chmod 0644 $ext4block/inode_readahead_blks
+  echo "64" > $ext4block/inode_readahead_blks
+fi
+done
+if [ -d /sys/module/adreno_idler/parameters ]; then
+  echo "20" > /sys/module/adreno_idler/parameters/adreno_idler_downdifferential
+  echo "99" > /sys/module/adreno_idler/parameters/adreno_idler_idlewait
+  echo "5" > /sys/module/adreno_idler/parameters/adreno_idler_idleworkload
+  echo "N" > /sys/module/adreno_idler/parameters/adreno_idler_active
+fi
+if [ -e /sys/module/msm_performance/parameters/touchboost ]; then
+ echo "1" > /sys/module/msm_performance/parameters/touchboost
+fi
+if [ -e /sys/power/pnpmgr/touch_boost ]; then
+  echo "1" > /sys/power/pnpmgr/touch_boost
+fi
+  echo "1024" > /proc/sys/kernel/random/read_wakeup_threshold
+  echo "2048" > /proc/sys/kernel/random/write_wakeup_threshold
+if [ -e /sys/module/msm_thermal/core_control/enabled ]; then
+  echo "0" > /sys/module/msm_thermal/core_control/enabled
+fi
+if [ -e /sys/module/sync/parameters/fsync_enabled ]; then
+  echo "Y" > /sys/module/sync/parameters/fsync_enabled
+fi
+if [ -d /proc/sys/fs ]; then
+  echo "5" > /proc/sys/fs/lease-break-time
+fi
+if [ -e /sys/kernel/dyn_fsync/Dyn_fsync_active ]; then
+  echo "0" > /sys/kernel/dyn_fsync/Dyn_fsync_active
+fi
+if [ -e /sys/module/mmc_core/parameters/use_spi_crc ]; then
+  echo '0' > /sys/module/mmc_core/parameters/use_spi_crc
+fi
+if [ -e /sys/module/workqueue/parameters/power_efficient ]; then
+ echo "0" > /sys/module/workqueue/parameters/power_efficient
+fi
+if [ -e /sys/devices/system/cpu/sched_mc_power_savings ]; then
+  echo "0" > /sys/devices/system/cpu/sched_mc_power_savings
+fi
+  setprop debug.egl.profiler 1
+  setprop debug.hwui.renderer skiavk
+  resetprop ro.sys.fw.bg_apps_limit 34
+  resetprop ro.vendor.qti.sys.fw.bg_apps_limit 34
+  #setprop debug.egl.force_msaa 1
+  echo "performance" > /sys/class/devfreq/cc00000.qcom,vidc:venus_bus_ddr/governor
+  echo "performance" > /sys/class/devfreq/mmc0/governor
+  echo "performance" > /sys/class/devfreq/mmc1/governor
+  echo "performance" > /sys/class/devfreq/soc:devfreq_spdm_cpu/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,cpubw/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,gpubw/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,kgsl-busmon/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,memlat-cpu0/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,memlat-cpu4/governor
+  echo "performance" > /sys/class/devfreq/soc:qcom,mincpubw/governor
+else
+  echo "1" > /sys/devices/system/cpu/cpu0/online
+  echo "1" > /sys/devices/system/cpu/cpu4/online
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+if [ -e /sys/module/msm_performance/parameters/cpu_oc ]; then
+  echo Y > /sys/module/msm_performance/parameters/cpu_oc
+fi
+if grep 'blu_schedutil' $cpu_governors; then
+  echo "blu_schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/*
+  echo "1000" > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/down_rate_limit_us
+  echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/blu_schedutil/iowait_boost_enable
+  echo "blu_schedutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/*
+  echo "1000" > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/down_rate_limit_us
+  echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu4/cpufreq/blu_schedutil/iowait_boost_enable
+elif grep 'pwrutilx' $cpu_governors; then
+  echo "pwrutilx" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/pwrutilx/*
+  echo "700" > /sys/devices/system/cpu/cpu0/cpufreq/pwrutilx/down_rate_limit_us
+  echo "1500" > /sys/devices/system/cpu/cpu0/cpufreq/pwrutilx/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/pwrutilx/iowait_boost_enable
+  echo "pwrutilx" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu4/cpufreq/pwrutilx/*
+  echo "700" > /sys/devices/system/cpu/cpu4/cpufreq/pwrutilx/down_rate_limit_us
+  echo "1500" > /sys/devices/system/cpu/cpu4/cpufreq/pwrutilx/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu4/cpufreq/pwrutilx/iowait_boost_enable
+elif grep 'interactive' $cpu_governors; then
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/interactive/*
+  echo "198000 1401000:158000 1536000:138000 1747000:178000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
+  echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down
+  echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
+  echo "88" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+  echo "1113000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+  echo "198000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
+  echo "38000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
+  echo "76 902000:80 1113000:68 1401000:89 1536000:72 1747000:89 1843000:60" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+  echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
+  echo "1" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack
+  echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu4/cpufreq/interactive/*
+  echo "198000 1401000:18000 1536000:78000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
+  echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/fast_ramp_down
+  echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
+  echo "88" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+  echo "1113000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
+  echo "198000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
+  echo "38000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
+  echo "93 1401000:97 1747000:56 1958000:99" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+  echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
+  echo "1" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack
+elif grep 'schedutil' $cpu_governors; then
+  echo "schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/*
+  echo "700" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+  echo "20000" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/iowait_boost_enable
+  echo "schedutil" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+  chmod 0644 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/*
+  echo "700" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
+  echo "20000" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us
+  echo "0" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/iowait_boost_enable
+fi
+for ext4block in $ext4blocks; do
+if [ -e "$ext4block/inode_readahead_blks" ]; then
+  chmod 0644 $ext4block/inode_readahead_blks
+  echo "32" > $ext4block/inode_readahead_blks
+fi
+done
+if grep 'anxiety' $io_scheduler; then
+  echo "anxiety" > /sys/block/mmcblk0/queue/scheduler
+  echo "anxiety" > /sys/block/mmcblk1/queue/scheduler
+else
+  echo "cfq" > /sys/block/mmcblk0/queue/scheduler
+  echo "cfq" > /sys/block/mmcblk1/queue/scheduler
+fi
+if [ -d /sys/module/adreno_idler/parameters ]; then
+  echo "Y" > /sys/module/adreno_idler/parameters/adreno_idler_active
+  echo "35" > /sys/module/adreno_idler/parameters/adreno_idler_downdifferential
+  echo "25" > /sys/module/adreno_idler/parameters/adreno_idler_idlewait
+  echo "10000" > /sys/module/adreno_idler/parameters/adreno_idler_idleworkload
+fi
+fi
+if [ -e /sys/module/msm_performance/parameters/touchboost ]; then
+  echo "0" > /sys/module/msm_performance/parameters/touchboost
+fi
+if [ -e /sys/power/pnpmgr/touch_boost ]; then
+  echo "0" > /sys/power/pnpmgr/touch_boost
+fi
+  echo "64" > /proc/sys/kernel/random/read_wakeup_threshold
+  echo "896" > /proc/sys/kernel/random/write_wakeup_threshold
+if [ -e /sys/module/msm_thermal/core_control/enabled ]; then
+  echo "1" > /sys/module/msm_thermal/core_control/enabled
+fi
+if [ -e /sys/module/sync/parameters/fsync_enabled ]; then
+  echo "Y" > /sys/module/sync/parameters/fsync_enabled
+fi
+if [ -d /proc/sys/fs ]; then
+  echo "25" > /proc/sys/fs/lease-break-time
+fi
+if [ -e /sys/kernel/dyn_fsync/Dyn_fsync_active ]; then
+  echo "0" > /sys/kernel/dyn_fsync/Dyn_fsync_active
+fi
+if [ -e /sys/module/mmc_core/parameters/use_spi_crc ]; then
+  echo "0" > echo '1' > /sys/module/mmc_core/parameters/use_spi_crc
+fi
+if [ -e /sys/module/workqueue/parameters/power_efficient ]; then
+  echo "1" > /sys/module/workqueue/parameters/power_efficient
+fi
+if [ -e /sys/devices/system/cpu/sched_mc_power_savings ]; then
+  echo "2" > /sys/devices/system/cpu/sched_mc_power_savings
+fi
+  setprop debug.hwui.renderer skiavk
+  resetprop ro.sys.fw.bg_apps_limit 44
+  resetprop ro.vendor.qti.sys.fw.bg_apps_limit 44
+  #setprop debug.egl.force_msaa 0
+  echo "venus-ddr-gov" > /sys/class/devfreq/cc00000.qcom,vidc:venus_bus_ddr/governor
+  echo "simple_ondemand" > /sys/class/devfreq/mmc0/governor
+  echo "simple_ondemand" > /sys/class/devfreq/mmc1/governor
+  echo "spdm_bw_hyp" > /sys/class/devfreq/soc:devfreq_spdm_cpu/governor
+  echo "bw_hwmon" > /sys/class/devfreq/soc:qcom,cpubw/governor
+  echo "bw_vbif" > /sys/class/devfreq/soc:qcom,gpubw/governor
+  echo "gpubw_mon" > /sys/class/devfreq/soc:qcom,kgsl-busmon/governor
+  echo "mem_latency" > /sys/class/devfreq/soc:qcom,memlat-cpu0/governor
+  echo "mem_latency" > /sys/class/devfreq/soc:qcom,memlat-cpu4/governor
+  echo "cpufreq" > /sys/class/devfreq/soc:qcom,mincpubw/governor
+fi;
+done
+
