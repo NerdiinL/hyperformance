@@ -16,21 +16,21 @@ sleep 5.7
   ui_print "𝙥𝙚𝙧𝙛𝙞𝙡 𝙜𝙖𝙢𝙞𝙣𝙜 𝙖𝙥𝙡𝙞𝙘𝙖𝙙𝙤 𝙘𝙤𝙢 𝙨𝙪𝙘𝙚𝙨𝙨𝙤 !"
   }
 
-ui_print "Checking Phone Information "
+ui_print "𝘾𝙝𝙚𝙘𝙠𝙞𝙣𝙜 𝙋𝙝𝙤𝙣𝙚 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 "
 sleep 2
 ui_print " "
-ui_print "Processor : $(getprop ro.product.board) "
+ui_print "𝗣𝗿𝗼𝗰𝗲𝘀𝘀𝗼𝗿 : $(getprop ro.product.board) "
 sleep 2
 ui_print " "
-ui_print "Arm Version : $(getprop ro.product.cpu.abi) "
+ui_print "𝗔𝗿𝗺 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 : $(getprop ro.product.cpu.abi) "
 sleep 2
 ui_print " "
-ui_print "Android Brand : $(getprop ro.product.brand) "
+ui_print "𝗔𝗻𝗱𝗿𝗼𝗶𝗱 𝗕𝗿𝗮𝗻𝗱 : $(getprop ro.product.brand) "
 sleep 2
 ui_print " "
-ui_print "Device : $(getprop ro.build.product) "
+ui_print "𝗗𝗲𝘃𝗶𝗰𝗲 : $(getprop ro.build.product) "
 sleep 1
   ui_print ""
-  ui_print "ID : $(getprop ro.build.display.id) "
+  ui_print "𝗜𝗗 : $(getprop ro.build.display.id) "
 sleep 5.7
   }
