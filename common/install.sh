@@ -33,56 +33,15 @@ sleep 1
   ui_print ""
   ui_print "𝗜𝗗 : $(getprop ro.build.display.id) "
 sleep 5.7
-ui_print "-.-.-.-.-.-.-..........-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+ui_print "
+    ______      ____                 __  __            __                   
+   / ____/___  / / /___ _      __   / /_/ /_  ___     / /_  __  ______  ___ 
+  / /_  / __ \/ / / __ \ | /| / /  / __/ __ \/ _ \   / __ \/ / / / __ \/ _ \
+ / __/ / /_/ / / / /_/ / |/ |/ /  / /_/ / / /  __/  / / / / /_/ / /_/ /  __/
+/_/    \____/_/_/\____/|__/|__/   \__/_/ /_/\___/  /_/ /_/\__, / .___/\___/ 
+                                                         /____/_/           
 
-.-.-.-.-.-.-.-.-.-..........-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
-
-.-.-.-.-.-.-.-.-............-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
-
-.-.-.-.-.-.-.-.-..............-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
-
-.-.-.-.-.-.-.-................-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
-
-.-.-.-.-.--:--..................-.-.-.-.-.-.-.--:--.-.-.-.-
-
-.-.-.-.*WWWWWWW@*::::-::::::::::::+:+:-:+:+*@WWWWWWW*.-.-..
-
-.-.-.-@WWWWWWWWWWW--W:@WWWWWWWWWWWWWW@:W--WWWWWWWWWWW@-....
-
-.-.-:WWWWW@@@WWWWW+:W:@WWWWWWWWWWWWWW@:W:+WWWWW:..=WWWW:...
-
-...-WWWWW#..-WWWWWWWW:@WWWWWWWWWWWWWW@:WWWWWWWW+..#WWWWW-..
-
-...#WW*::==:@+::@WWWW:@WWWWWWWWWWWWWW@:WWWW-.-@WWWW=..*W#..
-
-..:WWW+..-@@=...#WWWW:=WWWWWWWWWWWWWW=:WWW@...#WWWW+..+WW:.
-
-..=WWWWWW#..-WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW*.-@WWWWWW=.
-
-.-WWWWWWW@::+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW-..*WWWWWWW-
-
--*WWWWWWWWWWWWWWW=.....#WWWWWWWWWWWW#.....=WWWWWWWWWWWWWWW*
-
--@WWWWWWWWWWWWWW#.......@WWW+..+WWW@.......#WWWWWWWWWWWWWW@
-
-:WWWWWWWWWWWWWWWW-.....-WWWW=..=WWWW-.....-WWWWWWWWWWWWWWWW
-
-*WWWWWWWWWWWWWWWWW@*:*@WW@@@@@@@@@@WW@*:*@WWWWWWWWWWWWWWWWW
-
-=WWWWWWWWWWWWWW+.-*###+-.....-.-.-.-.+=##*--+WWWWWWWWWWWWWW
-
-#WWWWWWWWWWWWW#.-............-.-.-.-.-.-.-.-.#WWWWWWWWWWWWW
-
-#WWWWWWWWWWWW@-.-............-.-.-.-.-.-.-.-.-@WWWWWWWWWWWW
-
-=WWWWWWWWWWWW:-.-............-.-.-.-.-.-.-.-.--WWWWWWWWWWWW
-
-:WWWWWWWWWWW+.-.-............-.-.-.-.-.-.-.-.-.+WWWWWWWWWWW
-
--:WWWWWWWWW:-.-.-............-.-.-.-.-.-.-.-.-.-:WWWWWWWWW:
-
--.--*#@@=--.-.-.-............-.-.-.-.-.-.-.-.-.-.--=@@#*--.
 "
 sleep 1.0
- ui_print "
+
   }
